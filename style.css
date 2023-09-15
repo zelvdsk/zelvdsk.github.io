@@ -95,4 +95,21 @@ font-family: 'ZCOOL QingKe HuangYou', sans-serif;
   font-size: 17px;
   font-family: 'Kanit', sans-serif;
 }
-
+.article .homepage .start:hover{
+  background: linear-gradient(45deg, #2B0199, #005DAA);
+}
+.article .homepage .welcome{
+  overflow: hidden;
+  font-family: 'Kanit', sans-serif;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 3s steps(40) infinite;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
