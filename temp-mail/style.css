@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Mooli', sans-serif;
+}
+
+.container .bar-atas{
+  background-color: #0064DD;
+  height: 130px;
+  border-radius: 0px 0px 20px 20px;
+}
+.container .bar-atas button{
+  background-color: transparent;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.container .bar-atas button i{
+  background-image: linear-gradient(45deg, #E20000, #FF6868);
+  font-size: 20px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.container .bar-atas button span{
+  font-size: 15px;
+  color: #E2E2E2;
+  font-family: 'Mooli', sans-serif;
+}
+.container .email-container{
+  background-color: white;
+  height: 110px;
+  border-radius: 5px;
+  width: 90%;
+  margin: -70px auto;
+  box-shadow: 0px 0px 3px #E2E2E2;
+  z-index: 1;
+  padding: 10px;
+}
+.container .email-container .email{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+.container .email-container .email i{
+  background-color: #0064DD;
+  border-radius: 3px 0px 0px 3px;
+  color: #E2E2E2;
+  padding: 10px 10px;
+}
+.container .email-container .email input{
+  width: 90%;
+  border: 1px solid #E2E2E2;
+  border-radius:  0px 3px 3px 0px;
+  border-left: none;
+  outline: none;
+  padding: 5px;
+}
+.container .email-container .button{
+  display: flex;
+  justify-content: right;
+  gap: 2px;
+  margin-top: 5px;
+}
+.container .email-container .button button{
+  border: none;
+  outline: none;
+  color: #E2E2E2;
+  gap: 4px;
+  font-family: 'Mooli', sans-serif;
+  padding: 7px 15px;
+  display: flex;
+  border-radius: 3px;
+}
+.container .email-container .button button i{
+  font-size: 15px;
+}
+.container .email-container .button .salin{
+  background-color: #0064DD;
+  box-shadow: 0px 0px 2px #0064DD;
+}
+.container .email-container .button .hapus{
+  background-color: #CB3636;
+  box-shadow: 0px 0px 2px #CB3636;
+}
+.container .email-container .button .hapus:hover,
+.container .email-container .button .salin:hover{
+  color: white;
+}
+.container .mailbox{
+  border-radius: 5px;
+  width: 90%;
+  height: 250px;
+  box-shadow: 0px 0px 3px #E2E2E2;
+  margin: 90px auto;
+  padding: 5px;
+  overflow: scroll;
+}
+.container .mailbox .message{
+  font-size: 15px;
+  border-left: 3px solid #0064DD;
+  border-radius: 3px;
+  padding: 5px;
+  margin-top: 5px;
+}
+.container .mailbox .message .headers{
+  display: flex;
+  font-size: 10px;
+}
+.container .mailbox .message .content p{
+  font-size: 13px;
+}
+.container .mailbox button{
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  border-radius: 3px 5px 0px 3px;
+  float: right;
+  background-color: #0064DD;
+  color: #E2E2E2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 3px #0064DD;
+}
+.container .mailbox button:hover{
+  color: white;
+}

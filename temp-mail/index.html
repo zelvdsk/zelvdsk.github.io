@@ -1,1 +1,42 @@
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bar-atas">
+        <button type="submit" id="back"><i class="ph ph-rewind"></i><span>Kembali</span></button>
+      </div>
+      <div class="email-container">
+        <div class="email">
+          <i class="ph ph-envelope-simple"></i>
+          <input type="email" value="" id="email">
+        </div>
+        <div class="button">
+          <button type="submit" class="salin" id="salin"><i class="ph ph-copy"></i><span>SALIN</span></button>
+          <button type="submit" class="hapus" id="hapus"><i class="ph ph-trash"></i><span>HAPUS</span></button>
+        </div>
+      </div>
+      <div class="mailbox" id="mailbox">
+        <button type="submit" id="refresh"><i class="ph ph-arrow-clockwise"></i></button>
+        <div class="message" id="message">
+          <b class="subject">Welcome</b>
+          <div class="headers">
+            <p class="sender">Dari: admincs@example.com </p>
+            <span class="time" id="waktu"></span>
+          </div>
+          <hr />
+          <div class="content">
+            <p>Selamat datang, website ini dibuat menggunakan api gratis. Tidak bermaksud untuk menyaingi website penyedia api dan lainyya.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
