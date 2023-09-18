@@ -1,5 +1,5 @@
 // tombol kembali
-document.getElementById('back').addEventListener('click', () => {window.location.href = '#'});
+document.getElementById('back').addEventListener('click', () => {window.location.href = '/index.html'});
 
 // salin email
 document.getElementById('salin').addEventListener('click', () => {
@@ -12,7 +12,7 @@ document.getElementById('salin').addEventListener('click', () => {
 });
 
 // hapus email
-document.getElementById('hapus').addEventListener('click', () => {window.location.href = '/index.html'});
+document.getElementById('hapus').addEventListener('click', () => {window.location.href = '/temp-mail/index.html'});
 
 // waktu/jam
 function time() {
