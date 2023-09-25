@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Ytdl</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+    </head>
+    <body class="bg-gray-300">
+        <div style="margin: 10px auto; font-family: 'Montserrat', sans-serif;" class="rounded bg-white text-gray-800 w-[350px] p-[5px] mt-[7px]">
+            <!---
+            <div class="flex items-center justify-start gap-1">
+                <button id="server1" class="px-[15px] py-[4px] rounded flex items-center gap-1" style="font-family: 'ZCOOL QingKe HuangYou', sans-serif;" type="submit">
+                    <i class="ph ph-hard-drives"></i>
+                    <span>S1</span>
+                </button>
+            </div>
+            <hr class="text-gray-800">
+            -->
+            <div class="flex items-center justify-start gap-1">
+                <button id="mp3Btn" class="bg-emerald-500 px-[15px] py-[4px] flex rounded items-center gap-1 text-white" style="font-family: 'ZCOOL QingKe HuangYou', sans-serif;" type="submit">
+                    <i class="ph ph-speaker-high"></i>
+                    <span>YTMP3</span>
+                </button>
+                <button id="mp4Btn" class="px-[15px] py-[4px] rounded flex items-center gap-1" style="font-family: 'ZCOOL QingKe HuangYou', sans-serif;" type="submit">
+                    <i class="ph ph-video-camera"></i>
+                    <span>YTMP4</span>
+                </button>
+            </div> 
+            <hr class="text-gray-800">
+            <div id="mp3">
+                <div class="flex items-center justify-center w-full h-[100px] bg-gray-300 rounded mt-[10px]">
+                    <span class="text-gray-900">HARUSNYA INI IKLAN :)</span>
+                </div>
+                <div class="flex items-center justify-between mt-[10px]">
+                    <i class="ph ph-link bg-blue-600 text-white rounded-l px-[14px] py-[7.8px]"></i>
+                    <input type="url" id="url" class="w-full outline-none rounded-r p-[5px] text-[13px]" style="font-family: 'Montserrat', sans-serif; border: 1px solid #2563eb" placeholder="Video url">
+                </div>
+                <div class="flex items-center justify-end gap-1 mt-[5px] pb-[5px]">
+                    <button class="px-[12px] py-[4px] text-white text-[13px] rounded bg-gray-400 flex items-center gap-1" style="font-family: 'ZCOOL QingKe HuangYou', sans-serif;" type="submit" onclick="paste()">
+                        <i class="ph ph-clipboard-text"></i>
+                        <span>PASTE</span>
+                    </button>
+                    <button class="px-[12px] py-[4px] text-white text-[13px] rounded bg-gray-400 flex items-center gap-1" style="font-family: 'ZCOOL QingKe HuangYou', sans-serif;" type="submit" onclick="clear()">
+                        <i class="ph ph-trash"></i>
+                        <span>CLEAR</span>
+                    </button>
+                    <button class="px-[12px] py-[4px] text-white text-[13px] rounded bg-blue-600 flex items-center gap-1" style="font-family: 'ZCOOL QingKe HuangYou', sans-serif;" type="submit" onclick="api()">
+                        <i class="ph ph-gear-six"></i>
+                        <span>CONVERT</span>
+                    </button>
+                </div>
+            </div>
+            <div id="result" class="hidden">
+                <div style="margin: 10px auto; font-family: 'Montserrat', sans-serif;" class="mt-[10px] w-full bg-emerald-500 text-white rounded p-[5px] pb-[10px]">
+                    <img src="" alt="thumbnail" id="thumbnail" class="w-full rounded">
+                    <h3 class="mt-[5px] text-white" id="title" style="text-align: center; font-family: 'ZCOOL QingKe HuangYou', sans-serif;">Zcool huang- aminda (lirycs) [official]</h3>
+                    <span class="text-gray-900 text-[10px] flex justify-center" id="description">ERRUCHA | 13:00 Minute</span>
+                </div>
+                <a href="" download="" id="download">
+                    <button type="submit" class="flex items-center justify-center gap-1 bg-blue-600 text-white text-[13px] w-full py-[5px] rounded-b" style="margin-top: -15px;">
+                        <i class="ph ph-cloud-arrow-down text-[25px]"></i>
+                        <span id="downloadBtn" style="font-family: 'ZCOOL QingKe HuangYou', sans-serif;" class="text-white text-[13px]">DOWNLOAD</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <script>
+            var mp3 = true
+            var mp3Btn = document.getElementById('mp3Btn')
+            var mp4Btn = document.getElementById('mp4Btn')
+
+            mp3Btn.addEventListener('click', () => {
+                mp3Btn.classList.add('bg-emerald-500')
+                mp4Btn.classList.remove('bg-emerald-500')
+                mp4Btn.classList.remove('text-white')
+                mp4Btn.classList.add('text-gray-800')
+                mp3Btn.classList.add('text-white')
+                document.getElementById('result').classList.remove('block')
+                document.getElementById('result').classList.add('hidden')
+                mp3 = true
+            })
+            mp4Btn.addEventListener('click', () => {
+                mp3Btn.classList.remove('bg-emerald-500')
+                mp4Btn.classList.add('bg-emerald-500')
+                mp3Btn.classList.remove('text-white')
+                mp3Btn.classList.add('text-gray-800')
+                mp4Btn.classList.add('text-white')
+                document.getElementById('result').classList.remove('block')
+                document.getElementById('result').classList.add('hidden')
+                mp3 = false
+            })
+
+            async function api() {
+                var dBtn = document.getElementById('downloadBtn')
+                if(mp3) {
+                    var api = await fetch(`https://api.ibeng.tech/api/downloader/youtube-audio?url=${document.getElementById('url').value}&apikey=czhf7h2kk5`)
+                    var resp = await api.json()
+                    dBtn.innerText = 'DOWNLOAD MP3'
+                } else {
+                    var api = await fetch(`https://api.ibeng.tech/api/downloader/youtube-video?url=${document.getElementById('url').value}&apikey=czhf7h2kk5`)
+                    var resp = await api.json()
+                    dBtn.innerText = 'DOWNLOAD MP4'
+                }
+                console.log(resp)
+                if(resp.code !== 200){
+                    alert('Server api error!')
+                } else {
+                    document.getElementById('result').classList.remove('hidden')
+                    document.getElementById('result').classList.add('block')
+                    document.getElementById('title').innerText = resp.data.title
+                    document.getElementById('description').innerText = `${resp.data.channel} | ${resp.data.views} views`
+                    document.getElementById('download').href = resp.data.url
+                    document.getElementById('download').download = `${resp.data.title}.mp3`
+                    document.getElementById('thumbnail').src = resp.data.thumb
+                }
+            }
+        </script>
+    </body>
+</html>
