@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Ytdl</title>
+        <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://cdn.tailwindcss.com"></script>
@@ -41,17 +41,13 @@
                     <input type="url" id="url" class="w-full outline-none rounded-r p-[5px] text-[13px]" style="font-family: 'Montserrat', sans-serif; border: 1px solid #2563eb" placeholder="Video url">
                 </div>
                 <div class="flex items-center justify-end gap-1 mt-[5px] pb-[5px]">
-                    <button class="px-[12px] py-[4px] text-white text-[13px] rounded bg-gray-400 flex items-center gap-1" style="font-family: 'ZCOOL QingKe HuangYou', sans-serif;" type="submit" onclick="paste()">
-                        <i class="ph ph-clipboard-text"></i>
-                        <span>PASTE</span>
-                    </button>
-                    <button class="px-[12px] py-[4px] text-white text-[13px] rounded bg-gray-400 flex items-center gap-1" style="font-family: 'ZCOOL QingKe HuangYou', sans-serif;" type="submit" onclick="clear()">
+                    <button class="px-[12px] py-[4px] text-white text-[13px] rounded bg-gray-400 flex items-center gap-1" style="font-family: 'ZCOOL QingKe HuangYou', sans-serif;" type="submit" id="clr">
                         <i class="ph ph-trash"></i>
                         <span>CLEAR</span>
                     </button>
-                    <button class="px-[12px] py-[4px] text-white text-[13px] rounded bg-blue-600 flex items-center gap-1" style="font-family: 'ZCOOL QingKe HuangYou', sans-serif;" type="submit" onclick="api()">
-                        <i class="ph ph-gear-six"></i>
-                        <span>CONVERT</span>
+                    <button class="px-[12px] py-[4px] text-white text-[13px] rounded bg-blue-600 flex items-center gap-1" style="font-family: 'ZCOOL QingKe HuangYou', sans-serif;" type="submit" onclick="api()" id="convert">
+                        <i id="icon" class="ph ph-gear-six"></i>
+                        <span id="string">CONVERT</span>
                     </button>
                 </div>
             </div>
@@ -95,8 +91,16 @@
                 mp3 = false
             })
 
+            document.getElementById('clr').addEventListener('click', () => {document.getElementById('url').value = ""})
             async function api() {
                 var dBtn = document.getElementById('downloadBtn')
+                var icon = document.getElementById('icon')
+                var st = document.getElementById('string')
+                var btc = document.getElementById('convert')
+
+                icon.classList.add('hidden')
+                st.innerText = 'Converting....'
+                btc.disabled = true
                 if(mp3) {
                     var api = await fetch(`https://api.ibeng.tech/api/downloader/youtube-audio?url=${document.getElementById('url').value}&apikey=czhf7h2kk5`)
                     var resp = await api.json()
@@ -106,7 +110,6 @@
                     var resp = await api.json()
                     dBtn.innerText = 'DOWNLOAD MP4'
                 }
-                console.log(resp)
                 if(resp.code !== 200){
                     alert('Server api error!')
                 } else {
@@ -118,6 +121,9 @@
                     document.getElementById('download').download = `${resp.data.title}.mp3`
                     document.getElementById('thumbnail').src = resp.data.thumb
                 }
+                icon.classList.remove('hidden')
+                st.innerText = "CONVERT"
+                btc.disabled = false
             }
         </script>
     </body>
